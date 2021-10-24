@@ -1,0 +1,89 @@
+/* Variables */
+
+// colors
+$background: #f8f8f8;
+$font-color: #7e7e82;
+$font-color-black: #1b1c21;
+$white: #ffffff;
+$black: #666666;
+$button: #ff3e79;
+$logo: #6b7b84;
+$border-brands: #eaeaea;
+$border-header: #d9fff5;
+$line-header: #eaeaea;
+$active-link: #41f6d7;
+$border-link: #B8FFEC;
+$active-bullet: #b5b6bc;
+$inactive-bullet: #dddddd;
+$linear-gradient: #f8f8f8;
+$linear-gradient-opacity: rgba(248, 248, 248, 0.0001);
+$focus: deepskyblue;
+$midGrey: #2e2e2e;
+$darkGrey: #252525;
+$green: #4e4e4e;
+
+// breakpoints
+$min-mobile-width: 320px;
+$max-mobile-width: 767px;
+$min-tablet-width: 768px;
+$min-tablet-width: 768px;
+$min-desktop-width: 1440px;
+
+/* Сброс отступов */
+
+@mixin reset {
+  padding: 0;
+  margin: 0;
+}
+
+/* Fonts */
+
+$font-family: TTLakes, Arial, sans-serif;
+
+// Адаптивный шрифт
+$max-width: 1440; /* Размер всего полотна, указывать без пикселей */
+
+@mixin adaptiv-font($pcSize, $mobSize) {
+  $addSize: $pcSize - $mobSize;
+  $addMobSize: $mobSize + $mobSize * 0.7;
+  @media (max-width: 767px) {
+    font-size: calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px) / #{$max-width}));
+  }
+  @media (min-width: 768px) {
+    font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$max-width}));
+  }
+  @media (min-width: #{$max-width + px}) {
+    font-size: #{$pcSize + px};
+  }
+}
+
+/* Использование миксина Адаптивный шрифт*/
+
+// .block {
+//   @include adaptiv-font(30, 14); Первый параметр - размер шрифта на ПК, второй - размер шрифта
+//                                  при минимальном разрешении 320px (выставить либо по макету,
+//                                  либо на глаз)
+// }
+
+
+// Центрирование
+
+@mixin centering {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+// Анимация
+
+@mixin keyframes($animationName)
+{
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+    @keyframes #{$animationName} {
+        @content;
+    }
+}

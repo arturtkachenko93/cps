@@ -1,0 +1,225 @@
+.brands {
+  padding-bottom: 25px;
+
+  @media (min-width: $min-desktop-width) {
+    padding-bottom: 50px;
+  }
+}
+
+.brands__title {
+  @include reset;
+  text-transform: uppercase;
+  letter-spacing: -0.2px;
+  background-image: linear-gradient(90deg, $linear-gradient 1.39%, $white 100%);
+  padding: 16px;
+}
+
+.brands__wrapper {
+  padding: 16px 0 30px 16px;
+
+  @media (min-width: $min-tablet-width) {
+    padding-left: 24px;
+    padding-right: 8px;
+  }
+}
+
+.brands__list {
+  @include reset;
+  @media (min-width: $min-tablet-width) {
+    display: flex;
+    flex-wrap: wrap;
+    height: 169px;
+    overflow: hidden;
+    transition: height ease 0.5s;
+
+    &--visible {
+      height: 347px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    &--visible {
+      height: 267px;
+    }
+  }
+}
+
+.brands__item {
+  display: flex;
+  flex: 1 0 240px;
+  background-color: $white;
+  background-repeat: no-repeat;
+  border: 1px solid $border-brands;
+  border-radius: 6px;
+  line-height: 0;
+  padding: 16px;
+  margin-right: 16px;
+
+  &::before {
+    position: absolute;
+    display: block;
+    content: "";
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &::after {
+    position: absolute;
+    display: block;
+    content: "";
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transform: translateY(-500%);
+    background-color: $button;
+    filter: contrast(1.5);
+    opacity: 0.2;
+    transition: transform ease-in-out 0.3s;
+  }
+
+  &--lenovo::before {
+    width: 108px;
+    height: 32px;
+    background-image: image-set(url("../img/icons/lenovo.png") 1x);
+  }
+
+  &--samsung::before {
+    width: 116px;
+    height: 39px;
+    background-image: image-set(url("../img/icons/samsung.png") 1x);
+  }
+
+  &--apple::before {
+    width: 44px;
+    height: 44px;
+    background-image: image-set(url("../img/icons/apple.png") 1x);
+  }
+
+  &--viewsonic::before {
+    width: 128px;
+    height: 21px;
+    background-image: image-set(url("../img/icons/view-sonic.png") 1x);
+  }
+
+  &--bosh::before {
+    width: 128px;
+    height: 29px;
+    background-image: image-set(url("../img/icons/bosh.png") 1x);
+  }
+
+  &--hp::before {
+    width: 52px;
+    height: 52px;
+    left: 10px;
+    background-image: image-set(url("../img/icons/hp.png") 1x);
+  }
+
+  &--acer::before {
+    width: 94px;
+    height: 24px;
+    background-image: image-set(url("../img/icons/acer.png") 1x);
+  }
+
+  &--sony::before {
+    width: 128px;
+    height: 26px;
+    background-image: image-set(url("../img/icons/sony.png") 1x);
+  }
+
+  @media (any-hover) {
+    &:hover::after {
+      transform: translateY(0);
+    }
+  }
+
+  @media (min-width: $min-tablet-width) {
+    position: relative;
+    flex: 1 0 224px;
+    margin-bottom: 16px;
+
+    &.swiper-slide {
+      height: auto;
+    }
+  }
+}
+
+.brands__link {
+  margin-left: auto;
+  z-index: 1;
+}
+
+.brands__pagination {
+  @media (min-width: $min-tablet-width) {
+    display: none;
+  }
+
+  &.swiper-pagination {
+    bottom: -6px;
+  }
+
+  & .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: $inactive-bullet;
+    opacity: 1;
+  }
+
+  & .swiper-pagination-bullet-active {
+    background-color: $active-bullet;
+    opacity: 1;
+  }
+}
+
+.brands__button-wrapper {
+  display: none;
+
+  @media (min-width: $min-tablet-width) {
+    position: relative;
+    display: block;
+    padding-left: 24px;
+  }
+}
+
+.brands__button {
+  position: relative;
+  padding-left: 33px;
+
+  &::before {
+    position: absolute;
+    display: block;
+    content: "";
+    background: url("../img/icons/btn-arrows.svg") no-repeat;
+    top: 7px;
+    left: 7px;
+    width: 8px;
+    height: 15px;
+    transition: transform ease-in 0.8s;
+    transform: rotate(540deg);
+    cursor: pointer;
+  }
+
+  &::after {
+    display: block;
+    position: absolute;
+    content: "";
+    width: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: $darkGrey;
+    opacity: 0.5;
+    transition: width 0.3s ease-out;
+  }
+
+  @media(any-hover) {
+    &:hover::after {
+      width: 80%;
+    }
+  }
+
+  &--rotate::before {
+    top: 12px;
+    transform: rotate(0);
+  }
+}
