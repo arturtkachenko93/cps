@@ -141,7 +141,6 @@ buttonsModal.forEach((el) => {
   })
 });
 
-
 buttonModalClose.forEach((el) => {
   el.addEventListener('click', (e) => {
     modalOverlay.classList.toggle('modals-overlay--visible');

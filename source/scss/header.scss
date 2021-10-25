@@ -376,11 +376,7 @@
 .header__button-search {
   display: none;
 
-  @media(min-width: $min-tablet-width) {
-    display: inline-flex;
-  }
-
-  @media(min-width: $min-tablet-width) {
+  @media(min-width: $min-desktop-width) {
     display: inline-flex;
   }
 }
