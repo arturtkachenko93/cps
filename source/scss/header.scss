@@ -75,6 +75,10 @@
   right: 15px;
   background-color: $line-header;
   z-index: 1;
+
+  @media(min-width: $min-desktop-width) {
+    display: none;
+  }
 }
 
 .header__button-menu {
