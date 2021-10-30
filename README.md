@@ -12,14 +12,8 @@
 
 :exclamation: Для запуска финальной сборки :arrow_right: **npm run build**
 
-:exclamation: Для запуска development сборки :arrow_right: **npm run build**
-
-:exclamation: Для загрузки на Github Pages репозиторий должен быть связан с github репозиторием :arrow_right: **npm run deploy**
-
 :grey_exclamation: Исходные файлы проекта находятся в папке **source**
 
 :grey_exclamation: Готовая сборка проекта находится в папке **app**
 
-## Комментарии
-
-**they 'll be here soon ...**# cps
+[DEMO](https://arturtkachenko93.github.io/cps/)
