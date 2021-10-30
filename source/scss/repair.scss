@@ -31,18 +31,10 @@
   @media (min-width: $min-tablet-width) {
     display: flex;
     flex-wrap: wrap;
-    height: 155px;
+    max-height: 155px;
     overflow: hidden;
     padding-left: 0;
-    transition: height ease 0.6s;
-
-    &--visible {
-      height: 490px;
-
-      @media (min-width: 992px) {
-        height: 315px;
-      }
-    }
+    transition: max-height ease 0.6s;
   }
 } 
 
@@ -135,27 +127,12 @@
   @media (min-width: $min-tablet-width) {
     position: relative;
     display: block;
-    padding-left: 24px;
   }
 }
 
 .repair__button {
   position: relative;
   padding-left: 33px;
-
-  &::before {
-    position: absolute;
-    display: block;
-    content: "";
-    background: url("../img/icons/btn-arrows.svg") no-repeat;
-    top: 7px;
-    left: 7px;
-    width: 8px;
-    height: 15px;
-    transition: transform ease-in 0.8s;
-    transform: rotate(540deg);
-    cursor: pointer;
-  }
 
   &::after {
     display: block;
@@ -175,9 +152,22 @@
       width: 80%;
     }
   }
+}
 
-  &--rotate::before {
-    top: 12px;
-    transform: rotate(0);
-  }
+.repair__button svg {
+  transform: rotate(180deg);
+  transition: transform ease-in-out 0.8s;
+  margin-right: 16px;
+}
+
+.repair__button .svg-rotate {
+  transform: rotate(0deg);
+  transition: transform ease-in-out 0.8s;
+}
+
+.repair__button-toggle {
+  display: none;
+  appearance: none;
+  opacity: 0;
+  visibility: hidden;
 }
