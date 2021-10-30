@@ -24,6 +24,10 @@
     }
   }
 
+  &--hidden {
+    display: none;
+  }
+
   &--brands {
     background-color: transparent;
     border: 2px solid $button;

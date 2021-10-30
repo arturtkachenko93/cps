@@ -1,6 +1,12 @@
 .services {
   background-color: $background;
-  
+  border-bottom: 1px solid $border-header;
+  padding-bottom: 24px;
+
+  @media(min-width: $min-tablet-width) {
+    padding-bottom: 32px;
+  }
+
   @media(min-width: $min-desktop-width) {
     padding-top: 10px;
   }
@@ -78,71 +84,59 @@
 .services__content {
   color: $font-color-black;
   font-size: 14px;
-  line-height: calc(18 / 14 * 100%);
+  line-height: 18px;
 
   @media(min-width: $min-tablet-width) {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: min-content min-content;
-    padding-left: 24px;
-    padding-right: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 20px;
+    padding: 0 24px;
   }
 }
 
 .services__text-content {
-  position: relative;
-  max-height: 110px;
-  overflow: hidden;
   padding: 0 16px;
-  transition: max-height ease-out 0.2s;
+  margin-bottom: 7px;
 
   @media(min-width: $min-tablet-width) {
-    grid-column: 1 / 2;
-    max-height: 145px;
-    padding-left: 24px;
+    width: 50%;
+    padding: 0;
+    padding-right: 45px;
   }
 
-  @media(min-width: 840px) {
-    max-height: 180px;
+  @media(min-width: $min-desktop-width) {
+    max-height: 170px;
   }
+}
 
-  @media(min-width: 915px) {
-    max-height: 200px;
+.services__text-body {
+  position: relative;
+  max-height: 90px;
+  overflow: hidden;
+  transition: all ease-out 0.4s;
+
+  @media(min-width: $min-tablet-width) {
+    max-height: 169px;
   }
+}
 
-  &--visible {
-    max-height: 100vh;
-    transition: max-height ease-out 0.8s;
+.services__text {
+  @include reset;
+  padding-right: 11px;
 
-    & .services__text-bottom {
-      opacity: 0;
-      transition: opacity ease-in-out 0.2s;
-    }
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  };
 
-    @media(min-width: $min-tablet-width) {
-      max-height: 400px;
-    }
+  @media(min-width: $min-tablet-width) {
+    padding-right: 20px;
   }
-
-  & p {
-    @include reset;
-
-    @media(min-width: $min-tablet-width) {
-      padding-right: 16px;
-    }
-  }
-
-  & .services__text {
-    @media(min-width: 470px) {
-      margin-bottom: 17px;
-    } 
-  }  
 }
 
 .services__text-bottom {
   position: absolute;
   width: 100%;
-  height: 80px;
+  height: 25px;
   bottom: 0;
   background: linear-gradient(
     to bottom,
@@ -155,60 +149,44 @@
 
 .services__button {
   position: relative;
-  top: -10px;
-  padding-left: 46px;
   transition: top ease-in-out 0.2s;
 
-  &::before {
-    position: absolute;
+  &::after {
     display: block;
+    position: absolute;
     content: "";
-    background: url("../img/icons/btn-arrows.svg") no-repeat;
-    top: 7px;
-    left: 23px;
-    width: 8px;
-    height: 15px;
-    transition: transform ease-in 0.8s;
-    transform: rotate(540deg);
-    cursor: pointer;
+    width: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: $darkGrey;
+    opacity: 0.5;
+    transition: width 0.3s ease-out;
   }
 
-  @media(min-width: $min-tablet-width) {
-    top: -28px;
-  }
-
-  &--rotate {
-    top: 10px;
-    transition: top ease-in-out 0.2s;
-    margin-bottom: 18px;
-
-    &::before {
-      top: 12px;
-      transform: rotate(0);
-    }
-
-    @media(min-width: $min-tablet-width) {
-      top: -5px;
+  @media(any-hover) {
+    &:hover::after {
+      width: 80%;
     }
   }
+}
 
+.services__button svg {
+  transform: rotate(180deg);
+  transition: transform ease-in-out 0.8s;
+  margin-right: 16px;
+}
 
-  @media(min-width: $min-tablet-width) {
-    grid-row: -1 / 2;
-    transform: translateY(-150%);
-    transition: transform ease 0.8s;
+.services__button .svg-rotate {
+  transform: rotate(0deg);
+  transition: transform ease-in-out 0.8s;
+}
 
-    &--bottom {
-      transform: translateY(0);
-      transition: transform ease 0.3s;
-    }
-  }
-
-  @media(min-width: 940px) {
-    visibility: hidden;
-    opacity: 0;
-    transition: all ease 1s;
-  }
+.services__button-toggle {
+  display: none;
+  appearance: none;
+  opacity: 0;
+  visibility: hidden;
 }
 
 .services__picture {
@@ -217,6 +195,6 @@
   object-fit: cover;
 
   @media(min-width: $min-tablet-width) {
-    grid-column: 2 / 3;
+    width: 50%;
   }
 }

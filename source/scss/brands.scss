@@ -1,6 +1,10 @@
 .brands {
   padding-bottom: 25px;
 
+  @media (min-width: $min-tablet-width) {
+    padding-bottom: 24px;
+  }
+
   @media (min-width: $min-desktop-width) {
     padding-bottom: 50px;
   }
@@ -15,45 +19,47 @@
 }
 
 .brands__wrapper {
-  padding: 16px 0 30px 16px;
+  padding: 16px 0 32px 16px;
 
   @media (min-width: $min-tablet-width) {
     padding-left: 24px;
-    padding-right: 8px;
+    padding-bottom: 10px;
   }
 }
 
 .brands__list {
   @include reset;
+
   @media (min-width: $min-tablet-width) {
     display: flex;
     flex-wrap: wrap;
-    height: 169px;
+    max-height: 169px;
     overflow: hidden;
-    transition: height ease 0.5s;
-
-    &--visible {
-      height: 347px;
-    }
-  }
-
-  @media (min-width: 992px) {
-    &--visible {
-      height: 267px;
-    }
+    transition: max-height ease-in 0.6s;
   }
 }
 
 .brands__item {
   display: flex;
   flex: 1 0 240px;
+  flex-wrap: wrap;
+  margin-right: 16px;
+
+  @media (min-width: $min-tablet-width) {
+    margin-right: 24px;
+  }
+}
+
+.brands__item-link {
+  display: flex;
+  flex: 1 0 240px;
+  flex-wrap: wrap;
+  align-items: center;
   background-color: $white;
   background-repeat: no-repeat;
   border: 1px solid $border-brands;
   border-radius: 6px;
-  line-height: 0;
   padding: 16px;
-  margin-right: 16px;
 
   &::before {
     position: absolute;
@@ -76,55 +82,6 @@
     filter: contrast(1.5);
     opacity: 0.2;
     transition: transform ease-in-out 0.3s;
-  }
-
-  &--lenovo::before {
-    width: 108px;
-    height: 32px;
-    background-image: image-set(url("../img/icons/lenovo.png") 1x);
-  }
-
-  &--samsung::before {
-    width: 116px;
-    height: 39px;
-    background-image: image-set(url("../img/icons/samsung.png") 1x);
-  }
-
-  &--apple::before {
-    width: 44px;
-    height: 44px;
-    background-image: image-set(url("../img/icons/apple.png") 1x);
-  }
-
-  &--viewsonic::before {
-    width: 128px;
-    height: 21px;
-    background-image: image-set(url("../img/icons/view-sonic.png") 1x);
-  }
-
-  &--bosh::before {
-    width: 128px;
-    height: 29px;
-    background-image: image-set(url("../img/icons/bosh.png") 1x);
-  }
-
-  &--hp::before {
-    width: 52px;
-    height: 52px;
-    left: 10px;
-    background-image: image-set(url("../img/icons/hp.png") 1x);
-  }
-
-  &--acer::before {
-    width: 94px;
-    height: 24px;
-    background-image: image-set(url("../img/icons/acer.png") 1x);
-  }
-
-  &--sony::before {
-    width: 128px;
-    height: 26px;
-    background-image: image-set(url("../img/icons/sony.png") 1x);
   }
 
   @media (any-hover) {
@@ -177,27 +134,12 @@
   @media (min-width: $min-tablet-width) {
     position: relative;
     display: block;
-    padding-left: 24px;
   }
 }
 
 .brands__button {
   position: relative;
   padding-left: 33px;
-
-  &::before {
-    position: absolute;
-    display: block;
-    content: "";
-    background: url("../img/icons/btn-arrows.svg") no-repeat;
-    top: 7px;
-    left: 7px;
-    width: 8px;
-    height: 15px;
-    transition: transform ease-in 0.8s;
-    transform: rotate(540deg);
-    cursor: pointer;
-  }
 
   &::after {
     display: block;
@@ -217,9 +159,22 @@
       width: 80%;
     }
   }
+}
 
-  &--rotate::before {
-    top: 12px;
-    transform: rotate(0);
-  }
+.brands__button svg {
+  transform: rotate(180deg);
+  transition: transform ease-in-out 0.8s;
+  margin-right: 16px;
+}
+
+.brands__button .svg-rotate {
+  transform: rotate(0deg);
+  transition: transform ease-in-out 0.8s;
+}
+
+.brands__button-toggle {
+  display: none;
+  appearance: none;
+  opacity: 0;
+  visibility: hidden;
 }

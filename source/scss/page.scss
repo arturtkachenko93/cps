@@ -12,7 +12,7 @@
   color: $font-color;
   line-height: calc(24 / 16 * 100%);
   letter-spacing: -0.2px;
-  background-color: $background;
+  background-color: $background-viewport;
   overflow-x: hidden;
   scroll-behavior: smooth;
   scrollbar-width: thin;
@@ -44,8 +44,7 @@
   align-content: start;
   max-width: 1440px;
   margin: 0 auto;
-  border-left: 1px solid $border-header;
-  border-right: 1px solid $border-header;
+  background-color: $background;
   
   @media(min-width: $min-desktop-width) {
     grid-template-columns: min-content 1fr;
