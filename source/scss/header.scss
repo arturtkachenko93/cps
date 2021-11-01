@@ -39,7 +39,7 @@
   }
 
   @media(min-width: $min-tablet-width) {
-    display: flex;
+    grid-template-columns: min-content 1fr min-content min-content;
     padding-left: 24px;
     padding-right: 24px;
 
@@ -50,7 +50,7 @@
 
   @media(min-width: $min-desktop-width) {
     display: grid;
-    grid-template-columns: min-content 2fr 1fr;
+    grid-template-columns: min-content 2.166fr 1fr;
     top: auto;
     left: auto;
     right: auto;
@@ -61,23 +61,6 @@
     &::after {
       display: none;
     }
-  }
-}
-
-
-.header__body-line {
-  position: relative;
-  display: block;
-  content: '';
-  width: 2px;
-  height: 32px;
-  top: 5px;
-  right: 15px;
-  background-color: $line-header;
-  z-index: 1;
-
-  @media(min-width: $min-desktop-width) {
-    display: none;
   }
 }
 
@@ -160,7 +143,6 @@
 }
 
 .header__buttons-list {
-  @include reset;
   display: flex;
   margin-left: auto;
   transition: transform ease 1s;
@@ -170,17 +152,51 @@
     justify-content: flex-end;
   }
 
+  &--hidden-mobile {
+    display: none;
+
+    @media(min-width: $min-tablet-width) {
+      position: relative;
+      display: flex;
+
+      & p:last-child {
+        margin-right: 34px;
+      }
+
+      &::after {
+        position: relative;
+        display: block;
+        content: '';
+        width: 2px;
+        height: 32px;
+        top: 5px;
+        right: 10px;
+        background-color: $line-header;
+        z-index: 1;
+      
+        @media(min-width: $min-desktop-width) {
+          display: none;
+        }
+      }
+    }
+
+    @media(min-width: $min-desktop-width) {
+      display: none;
+    }
+  }
+
   &--offset {
-    transform: translate(51%);
+    transform: translate(60%);
     transition: transform ease 0.6s;
 
     @media(min-width: $min-tablet-width) {
-      transform: translate(120%);
+      transform: translate(144%);
     }
   }
 }
 
 .header__buttons-item {
+  @include reset;
   display: inline-flex;
   align-items: center;
   margin-right: 16px;
@@ -209,10 +225,6 @@
   @media(min-width: $min-tablet-width) {
     &--hidden {
       display: inline-flex;
-    }
-
-    &:nth-child(3) {
-      margin-right: 34px;
     }
   }
 

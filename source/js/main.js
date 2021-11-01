@@ -22,7 +22,9 @@ const menuShowDesktop = (e) => {
   if (!headerWrapper.classList.contains('header__wrapper--closed')) {
     headerWrapper.classList.add('header__wrapper--closed');
     overlay.classList.remove('page__background-modal--visible');
-    btnList.classList.remove('header__buttons-list--offset');
+    btnList.forEach((el) => {
+      el.classList.remove('header__buttons-list--offset');
+    })
     btnToogle.classList.remove('header__button-menu--open');
     headerBody.classList.add('header__body--border-bottom');
   }
@@ -36,7 +38,9 @@ const menuClose = () => {
   btnToogle.setAttribute('aria-expanded', !expandedBtn);
   btnToogle.classList.toggle('header__button-menu--open');
   headerWrapper.classList.toggle('header__wrapper--closed');
-  btnList.classList.toggle('header__buttons-list--offset');
+  btnList.forEach((el) => {
+    el.classList.toggle('header__buttons-list--offset');
+  })
   btnSetting.classList.toggle('button-round--search');
   overlay.classList.toggle('page__background-modal--visible');
   page.classList.remove('page__body--lock');

@@ -28,6 +28,18 @@
     display: none;
   }
 
+  &--hidden-phone {
+    display: none;
+
+    @media (min-width: $min-tablet-width) {
+      display: inline-flex;
+    }
+
+    @media (min-width: $min-desktop-width) {
+      display: none;
+    }
+  }
+
   &--brands {
     background-color: transparent;
     border: 2px solid $button;

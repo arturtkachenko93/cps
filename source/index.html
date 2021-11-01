@@ -96,32 +96,33 @@
         <button class="header__button-search button-round button-round--search">
           <span class="visually-hidden">Поиск по сайту</span>
         </button>
-        <ul class="header__buttons-list">
-          <li class="header__buttons-item">
-            <button class="button-round button-round--phone button-round--hidden" data-modal-path="call">
+        <div class="header__buttons-list header__buttons-list--hidden-mobile">
+          <p class="header__buttons-item">
+            <button class="button-round button-round--phone button-round--hidden-phone" data-modal-path="call">
               <span class="visually-hidden">Заказать обратный звонок</span>
             </button>
-          </li>
-          <li class="header__buttons-item header__buttons-item--hidden">
+          </p>
+          <p class="header__buttons-item header__buttons-item--hidden">
             <button class="button-round button-round--msg" data-modal-path="msg">
               <span class="visually-hidden">Написать сообщение</span>
             </button>
-          </li>
-          <li class="header__buttons-item header__buttons-item--hidden">
+          </p>
+          <p class="header__buttons-item header__buttons-item--hidden">
             <button class="button-round button-round--mail">
               <span class="visually-hidden">Написать сообщение</span>
             </button>
-          </li>
-          <span class="header__body-line"></span>
-          <li class="header__buttons-item header__buttons-item--settings">
+          </p>
+        </div>
+        <div class="header__buttons-list">
+          <p class="header__buttons-item header__buttons-item--settings">
             <span>Оставить заявку</span>
             <button class="header__buttons button-round button-round--settings"></button>
-          </li>
-          <li class="header__buttons-item">
+          </p>
+          <p class="header__buttons-item">
             <span>Статус ремонта</span>
             <button class="button-round button-round--status"></button>
-          </li>
-        </ul>
+          </p>
+        </div>
       </div>
     </header>
     <main class="page__main main">

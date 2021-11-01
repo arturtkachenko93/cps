@@ -17,6 +17,7 @@ const searchingHTML = () => {
 
   return targetFiles;
 }
+
 const HTMLSourceFiles = searchingHTML();
 
 const filename = (ext) => isDev ? `[name].${ext}` : `[name].[contenthash].${ext}`;

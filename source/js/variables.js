@@ -4,7 +4,7 @@ const headerWrapper = document.querySelector('.header__wrapper')
 const btnSetting = document.querySelector('.button-round--settings');
 const btnToogle = document.querySelector('.header__button-menu');
 const overlay = document.querySelector('.page__background-modal');
-const btnList = document.querySelector('.header__buttons-list');
+const btnList = document.querySelectorAll('.header__buttons-list');
 const headerBody = document.querySelector('.header__body');
 
 const buttonBrands = document.querySelector('.brands__button');
