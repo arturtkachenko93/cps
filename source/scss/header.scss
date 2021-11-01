@@ -50,12 +50,12 @@
 
   @media(min-width: $min-desktop-width) {
     display: grid;
-    grid-template-columns: min-content 2.166fr 1fr;
+    grid-template-columns: min-content 2.158fr 1fr;
     top: auto;
     left: auto;
     right: auto;
     gap: 0;
-    padding: 18px 30px 0 1px;
+    padding: 18px 0 0 1px;
     background-image: linear-gradient(to right, $white 320px, $background 320px);
     &::before,
     &::after {
